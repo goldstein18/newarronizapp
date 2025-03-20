@@ -235,6 +235,7 @@ img.vc_single_image-img.attachment-full {
 <body class="home page-template-default page page-id-12480 _masterslider _ms_version_3.5.1 ct-layout--full ct-layout--fixed ct-layout--with-slider ct-hero--without-image ct-menu--align-right ct-menu--floating ct-menu--normal  ct-content-with-vc wpb-js-composer js-comp-ver-6.13.0 vc_responsive" itemscope itemtype="http://schema.org/WebPage">
 	<div class="ct-site">
 		<header class="ct-header" itemscope itemtype="http://schema.org/WPHeader">
+			
   <div class="ct-header__wrapper">
     <div class="container-fluid">
       <div class="ct-header__toolbar">
@@ -304,10 +305,15 @@ img.vc_single_image-img.attachment-full {
   <div class="container-fluid">
 
 <article id="post-12480" class="ct-page__entry-content post-12480 page type-page status-publish hentry">
-
+	
+		
+	 
 	<!-- The Content -->
 			<section class="wpb-content-wrapper"><div data-stellar-offset-parent="true"  class="vc_row wpb_row vc_row-fluid content-padding-xl"><div  class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner " style="" ><div class="wpb_wrapper">
-	<div class="wpb_text_column wpb_content_element " >
+				
+	
+	
+				<div class="wpb_text_column wpb_content_element " >
 		<div class="wpb_wrapper">
 			<h1 class="special-title display-2" style="text-align: center; margin-top: 50px;">Artistas</h1>
 
@@ -418,14 +424,25 @@ img.vc_single_image-img.attachment-full {
 		</div>
 	
 	<!--NEW CODE ENDS-->
-</div><div class="vc_btn3-container vc_btn3-center" ><a onmouseleave="this.style.borderColor='#0a0a0a'; this.style.backgroundColor='transparent'; this.style.color='#0a0a0a'" onmouseenter="this.style.borderColor='#0a0a0a'; this.style.backgroundColor='#0a0a0a'; this.style.color='#666666';" style="border-color:#0a0a0a; color:#0a0a0a;" class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-outline-custom" href="../category/2023/index.html" title="">VER TODOS</a></div></div></div></div></div><div data-stellar-offset-parent="true"  class="vc_row wpb_row vc_row-fluid content-padding-lg vc_custom_1503604954255"><div  class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner " style="" ><div class="wpb_wrapper">
+</div>
+
+			
+<div class="vc_btn3-container vc_btn3-center" >
+	<a onmouseleave="this.style.borderColor='#0a0a0a'; this.style.backgroundColor='transparent'; this.style.color='#0a0a0a'" onmouseenter="this.style.borderColor='#0a0a0a'; this.style.backgroundColor='#0a0a0a'; this.style.color='#666666';" style="border-color:#0a0a0a; color:#0a0a0a;" class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-outline-custom" href="../category/2023/index.html" title="">VER TODOS</a></div></div></div></div></div><div data-stellar-offset-parent="true"  class="vc_row wpb_row vc_row-fluid content-padding-lg vc_custom_1503604954255">
+		<div  class="wpb_column vc_column_container vc_col-sm-12">
+		<div class="vc_column-inner " style="" ><div class="wpb_wrapper">
 	<div class="wpb_text_column wpb_content_element " >
 		<div class="wpb_wrapper">
+			
+			
+				
+			 
 			<h1 class="display-2" style="text-align: center;">Newsletter</h1>
 <p style="text-align: center;">Sé el primero en escuchar sobre las últimas exhibiciones, eventos y noticias</p>
 
 		</div>
 	</div>
+	
 <div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
 	<div class="wpb_raw_code wpb_content_element wpb_raw_html" >
 		<div class="wpb_wrapper">
@@ -444,7 +461,10 @@ img.vc_single_image-img.attachment-full {
 </article>
 
 
-  </div></div>
+  </div>
+ 
+
+</div>
   <footer class="ct-footer" itemscope itemtype="http://schema.org/WPFooter">
         <div class="container-fluid">
               <div id="absolute-footer" style="color:white !important;">
@@ -743,74 +763,70 @@ var arte_theme_data = {"menu":{"sticky":false}};
 
 <!-- DYNAMIC JS CODE BELOW -->
 
-<script>
-	document.addEventListener("DOMContentLoaded", async function () {
-		const yearApiUrl = "https://romantic-respect-73d42f4ab6.strapiapp.com/api/exhibition-years?sort=year:desc";
-		const exhibitionApiUrl = "https://romantic-respect-73d42f4ab6.strapiapp.com/api/exhibitions";
-		const yearList = document.querySelector("#menu-menu-principal .sub-menu");
-	
-		if (!yearList) {
-			console.error("❌ Year list element not found.");
-			return;
-		}
-	
-		try {
-			// Fetch exhibition years
-			const yearResponse = await fetch(yearApiUrl);
-			const yearData = await yearResponse.json();
-	
-			// Fetch exhibitions
-			const exhibitionResponse = await fetch(exhibitionApiUrl);
-			const exhibitionData = await exhibitionResponse.json();
-	
-			if (!yearData.data || !Array.isArray(yearData.data) || 
-				!exhibitionData.data || !Array.isArray(exhibitionData.data)) {
-				console.error("❌ Invalid API response:", { yearData, exhibitionData });
-				return;
-			}
-	
-			yearList.innerHTML = ""; // Clear existing menu
-	
-			for (const yearItem of yearData.data) {
-				const year = yearItem.year.toString();
-	
-				// Find matching exhibition by title
-				const exhibition = exhibitionData.data.find(ex => ex.title === year);
-				const exhibitionTitle = exhibition ? exhibition.title : null;
-	
-				// Create menu item dynamically
-				const li = document.createElement("li");
-				li.className = "menu-item menu-item-type-taxonomy menu-item-object-category";
-	
-				const a = document.createElement("a");
-				
-				if (exhibitionTitle) {
-					a.href = `/expos.html`; /*2024-es/index.html*/
-				} else {
-					a.href = "#"; // Disable link if no exhibition exists
-					a.style.pointerEvents = "none";
-					a.style.opacity = "0.5";
-				}
-	
-				a.textContent = year;
-				li.appendChild(a);
-				yearList.appendChild(li);
-	
-				console.log(`✅ Added ${year} → ${a.href}`);
-			}
-		} catch (error) {
-			console.error("❌ Error fetching data:", error);
-		}
-	});
-	
-	
-	
-	
-	</script>
-	
 
 	
 	
+	  <script>
+	document.addEventListener("DOMContentLoaded", async function () {
+  const yearApiUrl = "https://romantic-respect-73d42f4ab6.strapiapp.com/api/exhibition-years?sort=year:desc";
+  const exhibitionApiUrl = "https://romantic-respect-73d42f4ab6.strapiapp.com/api/exhibitions";
+  const yearList = document.querySelector("#menu-menu-principal .sub-menu");
+
+  if (!yearList) {
+    console.error("❌ Year list not found.");
+    return;
+  }
+
+  try {
+    // Fetch exhibition years
+    const yearResponse = await fetch(yearApiUrl);
+    const yearData = await yearResponse.json();
+    console.log("Year Data:", yearData); // Debugging: Log the API response
+
+    // Fetch exhibitions
+    const exhibitionResponse = await fetch(exhibitionApiUrl);
+    const exhibitionData = await exhibitionResponse.json();
+    console.log("Exhibition Data:", exhibitionData); // Debugging: Log the API response
+
+    if (!yearData.data || !Array.isArray(yearData.data) || 
+        !exhibitionData.data || !Array.isArray(exhibitionData.data)) {
+      console.error("❌ Invalid API response:", { yearData, exhibitionData });
+      return;
+    }
+
+    yearList.innerHTML = ""; // Clear existing menu
+
+    for (const yearItem of yearData.data) {
+      // Access the year property directly
+      const year = yearItem.year ? yearItem.year.toString() : null;
+
+      if (!year) {
+        console.error("❌ Year is undefined for yearItem:", yearItem);
+        continue;
+      }
+
+      // Find matching exhibition by title
+      const exhibition = exhibitionData.data.find(ex => ex.title === year);
+      const exhibitionTitle = exhibition ? exhibition.title : null;
+
+      // Create menu item dynamically
+      const li = document.createElement("li");
+      li.className = "menu-item menu-item-type-taxonomy menu-item-object-category";
+
+      const a = document.createElement("a");
+      a.href = `expos.html?year=${year}`; // Redirect to expos.html with the selected year
+      a.textContent = year;
+
+      li.appendChild(a);
+      yearList.appendChild(li);
+
+      console.log(`✅ Added ${year}`);
+    }
+  } catch (error) {
+    console.error("❌ Error fetching data:", error);
+  }
+});
+	  </script>
 	
 	
 	
