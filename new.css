@@ -156,7 +156,6 @@ hr {
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-  
 }
 
 .artist-card {
@@ -168,6 +167,7 @@ hr {
     text-align: center;
     justify-content: center;
     padding: 20px;
+    
    
 
 }
@@ -207,9 +207,10 @@ hr {
         display: flex;
         flex-direction: column-reverse;
         text-align: center;
-        margin-top: 100px;
+        margin-top: 50px !important;
    
         height: 100vh;
+
     }
     .new-text {
         width: 100%;
@@ -253,7 +254,7 @@ hr {
     }
 
     .new-main {
-        margin-top: 80px;
+        margin-top: 50px !important;
     }
 
     .new-image,
@@ -267,6 +268,17 @@ hr {
 
     .artist-card {
         width: 100%;
+    }
+
+    .inner-footer ul li#logo-align {
+        text-align: center !important;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .inner-footer ul li#logo-align img {
+        margin: 0;
     }
    
 }
@@ -285,7 +297,7 @@ hr {
     .new-main {
         flex-direction: column-reverse;
         text-align: center;
-        margin-top: 50px;
+        margin-top: 50px !important;
     }
 
     .new-image,
